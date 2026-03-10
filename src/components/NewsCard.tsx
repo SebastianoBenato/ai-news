@@ -2,9 +2,10 @@ interface Props {
   title: string;
   description: string;
   imageUrl: string;
+  linkNoticia: string;
 }
 
-export const NewsCard = ({ title, description, imageUrl }: Props) => {
+export const NewsCard = ({ title, description, linkNoticia, imageUrl }: Props) => {
   return (
     <div className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-white border border-gray-200 hover:shadow-2xl transition-shadow duration-300">
       <img className="w-full h-48 object-cover" src={imageUrl} alt={title} />
@@ -13,7 +14,11 @@ export const NewsCard = ({ title, description, imageUrl }: Props) => {
         <p className="text-gray-600 text-base">
           {description}
         </p>
-        <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+        <button onClick = {
+          () => {
+            window.open(linkNoticia, '_blank');
+          }
+        } className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
           Leer resumen con IA
         </button>
       </div>
