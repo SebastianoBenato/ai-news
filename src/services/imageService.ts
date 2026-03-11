@@ -19,7 +19,11 @@ export async function getImageURL(urlDestino: string) {
     const firstImg = doc.querySelector('article img')?.getAttribute('src') || 
                      doc.querySelector('img')?.getAttribute('src');
 
-    return ogImage || firstImg || backgroundImageURL;
+
+    const imageUrl = ogImage || firstImg || backgroundImageURL;
+    console.log(`Imagen encontrada para ${urlDestino}:`, imageUrl);
+
+    return imageUrl;
   } catch (error) {
     console.error("Error con el proxy:", error);
     return backgroundImageURL;
